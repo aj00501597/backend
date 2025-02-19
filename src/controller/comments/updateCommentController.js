@@ -2,10 +2,6 @@ const Comment = require('../../mongoose/model/commentSchema');
 const updateCommentController = async (req, res) => {
   try {
     let id = req.params.id;
-    // let newData = new Comment({
-    //   id: req.body.id,
-    //   comment: req.body.comment,
-    // });
     let data = await Comment.updateOne({ id }, { comment: req.body.comment });
     res.status(201).send({
       success: true,
